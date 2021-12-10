@@ -14,6 +14,7 @@ Packages can be created by making a directory in the repository folder and addin
 - `update.sh`
 
 The working directory for each of these scripts is `/tmp`. They will be called by the respective shellpkg-commands and can perform arbitrary operations.
+Environment variables for the installation base directory (`/opt` by default) and the package directory (`/opt/usr/share/shellpkg-repo/<package name>` by default) will be provided as $BASE_DIR and $PACKAGE_DIR.
 
 Additionally, a folder `meta` can be contained in the package folder containing three additional optional files:
 
