@@ -1,0 +1,46 @@
+#!/bin/sh
+
+GENERAL_ERROR=1
+USAGE_ERROR=2
+PACKAGE_ERROR=3
+
+if [ -z $1 ]; then
+    echo "No package specified."
+    echo "Usage: $0 <package name>"
+    exit $USAGE_ERROR
+fi
+
+
+if [ -f /opt/etc/shellpkg ]; then
+    REPO=$(sed -ne '/^repo=/s/^repo=//p' /etc/shellpkg.conf)
+    # assume the user is not an idiot and don't do proper config validation
+else
+    echo "Config file not found!"
+    exit $GENERAL_ERROR
+fi
+
+if [ ! -d $REPO ]; then
+    echo "Repo directory not found: $REPO"
+    exit $GENERAL_ERROR
+fi
+
+if [ -d $REPO/$1 ]; then
+    echo "Package: $1"
+    echo "============"
+    if [ -f $REPO/$1/meta/description ]; then
+        echo "Description:"
+        cat $REPO/$1/meta/description
+    fi
+    if [ -f $REPO/$1/meta/dependencies ]; then
+        echo "Dependencies:"
+        cat $REPO/$1/meta/dependencies
+    fi
+    if [ -f $REPO/$1/meta/conflicts ]; then
+        echo "Conflicts:"
+        cat $REPO/$1/meta/conflicts
+    fi
+    echo "============"
+else
+    echo "Unknown package: $1"
+    exit $PACKAGE_ERROR
+fi
