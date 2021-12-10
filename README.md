@@ -11,6 +11,8 @@ In this package manager, we give the **users** the freedom to create their own p
 
 # How to create a package?
 It's easy. Create a Bash script and point the install to ```/opt``` and a link on ```/usr/bin/local.```
+Also, you have to create 3 files. ```install.sh```for install, ```remove.sh``` for unninstall and ```update.sh``` for updating. All of them needs
+to have the exact name. Place them on a folder with the **exact** same name of the package on the shellpkg-repo folder. 
 
 # How to install?
 I created a Debian package for it's reability, but if you aren't running Debian our Ubuntu, just download the Zip file, extract, place all the files in the folder
