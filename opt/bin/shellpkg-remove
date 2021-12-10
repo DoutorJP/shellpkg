@@ -1,16 +1,15 @@
 #!/bin/bash
 
 if [ "$*" == "" ]; then
-    echo "You choosed no package"
-    sleep 3
+    echo "No package selected."
     exit 1
 fi
 
-echo "You choosed to remove $1"
-read  -n 1 -p "Press enter to continue the unninstall:" Press any key to proceed
+echo "Package $ selected for removal:"
+#TODO: check for depending packages, prompt if all of them shall be uninstalled
+read -n1 -p "Press any key to continue or hit ^c to abort."
 exec /opt/shellpkg-repo/$1/remove.sh
-clear
-echo "Hey, if you are seeing this text, probably the folder don't exist, or it was named wrong. The script will exit"
-sleep 3
+
+echo "Unrecognized package: $1"
 exit 1
 

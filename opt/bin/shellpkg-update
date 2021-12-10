@@ -1,16 +1,14 @@
 #!/bin/bash
 
 if [ "$*" == "" ]; then
-    echo "You choosed no package"
-    sleep 3
+    echo "No package selected."
     exit 1
 fi
 
-echo "You choosed to update $1"
-read  -n 1 -p "Press enter to continue the update" Press any key to proceed
+echo "Package $1 selected for update:"
+#TODO: read metadata to check for new dependencies and conflicts
+read -n1 -p "Press any key to continue or hit ^c to abort."
 exec /opt/shellpkg-repo/$1/update.sh
-clear
-echo "Hey, if you are seeing this text, probably the folder don't exist, or it was named wrong. The script will exit"
-sleep 3
+echo "Unknown package: $1"
 exit 1
 
