@@ -4,14 +4,14 @@ GENERAL_ERROR=1
 USAGE_ERROR=2
 PACKAGE_ERROR=3
 
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
     echo "No package specified."
     echo "Usage: $0 <package name>"
     exit $USAGE_ERROR
 fi
 
 
-if [ -f /etc/shellpkg ]; then
+if [ -f /etc/shellpkg.conf ]; then
     REPO=$(sed -ne '/^repo=/s/^repo=//p' /etc/shellpkg.conf)
     # assume the user is not an idiot and don't do proper config validation
 else
