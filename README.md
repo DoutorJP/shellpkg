@@ -4,6 +4,7 @@ Shell Pkg is designed to work alongside an existing package manager.
 
 # How to install?
 Place the files in their respective directories (as indicated by their paths relative to this Git repo) and add /opt/bin to your PATH variable
+(Or you can copy the files from /opt/bin to /usr/local/bin)
 
 # How to configure?
 The configuration file has a very simple format. It’s essentially strictly `option=value` except `sed -ne '/^option=/s/^option=//p'` is being used to parse it so as long as other things don’t get in the way, they will just be ignored.
