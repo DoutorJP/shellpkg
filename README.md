@@ -1,23 +1,28 @@
 # Shell Pkg
-A minimal, package manageranager written in shell script
-
-# What is this?
-This is a Package Manager written in Shell script. It's minimal, not bloated, and lets users with a little knowledge easily mantain their own packages.
-
-> Other package managers work with local packages, that often get old. With Shell Pkg, your packages are download directly from the internet at the time you start an install. And, you don't have to deal with depedencies.
-
-Comment: This is decidedly not true. There are RR distros and systems that are pretty close to being up-to-date at all times. That said, for distros with a stable package base, this might be useful if you need "just that one" updated package. I will add some suggestion to an accompanying issue.
+A minimal, user-maintainable package manageranager written in shell script.
+Shell Pkg is designed to work alongside an existing package manager.
 
 # Where are the packages?
-One goal of this project is for everything to be user-maintainable. As such, there are no official repositories at this point. That said, creating packages is easy (see below). An example for Telegram is provided.
+One goal of this project is for everything to be user-maintainable. As such, there are no official repositories at this point. That said, creating packages is easy (see below) and repositories can be shared - for example with Git. An example package for Telegram is provided.
+TODO: Make a generic example package that actually does nothing.
 
 # How to create a package?
-It's easy. Create a Bash script and point the install to `/opt` and a link on `/usr/bin/local.`
-Also, you have to create 3 files. `install.sh`for install, `remove.sh` for unninstall and `update.sh` for updating. All of them needs
-to have the exact name. Place them on a folder with the **exact** same name of the package on the shellpkg-repo folder.
+Packages can be created by making a directory in the repository folder and adding three scripts:
+
+- `install.sh`
+- `remove.sh`
+- `update.sh`
+
+The working directory for each of these scripts is `/tmp`. They will be called by the respective shellpkg-commands and can perform arbitrary operations.
+
+Additionally, a folder `meta` can be contained in the package folder containing three additional optional files:
+
+- `description` (human-readable package description)
+- `dependencies` a list of dependencies, lines starting with # are ignored
+- `conflicts` a list of conflicting packages, lines starting with # are ignored
 
 # How to install?
-I created a Debian package for easy installation, but if you aren't running Debian our Ubuntu, just download the source code, extract, place all the files in `usr/local/bin` and place the `shellpkg-repo` folder in `/opt`.
+Place the files in their respective directories (as indicated by their paths relative to this Git repo) and add /opt/bin to your PATH variable
 
 # Commands
 
