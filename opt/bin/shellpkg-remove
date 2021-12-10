@@ -29,11 +29,19 @@ if [ -d $REPO/$1 ]; then
     #TODO: dependency and conflict checks
     echo "============"
     read -n1 -p "Press any key to continue with package removal or hit ^c to abort."
-    #TODO: install dependencies
+    #TODO: uninstall dependents
+    #TODO: mark package as starting deinstallation
     cd /tmp
     export BASE_DIR=$(sed -ne '/^base-directory=/s/^base-directory=//p' /etc/shellpkg.conf)
     export PACKAGE_DIR=$REPO/$1
-    $PACKAGE_DIR/install.sh
+    $PACKAGE_DIR/remove.sh
+    EXIT_CODE=$?
+    if [ $EXIT_CODE -eq 0 ]; then
+        #TODO: mark package as finished deinstallation
+    else
+        #TODO: mark package as failed deinstallation
+    fi
+    exit EXIT_CODE # propagate exit code
 else
     echo "Unknown package: $1"
     exit $PACKAGE_ERROR

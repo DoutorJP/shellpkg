@@ -27,6 +27,10 @@ fi
 if [ -d $REPO/$1 ]; then
     echo "Package: $1"
     echo "============"
+    if [ -f $REPO/$1/meta/version ]; then
+        echo "Version:"
+        echo $(cat $REPO/$1/meta/version)
+    fi
     if [ -f $REPO/$1/meta/description ]; then
         echo "Description:"
         cat $REPO/$1/meta/description
@@ -39,6 +43,8 @@ if [ -d $REPO/$1 ]; then
         echo "Conflicts:"
         cat $REPO/$1/meta/conflicts
     fi
+    #TODO: check if installed
+    #TODO: check if update available
     echo "============"
 else
     echo "Unknown package: $1"
