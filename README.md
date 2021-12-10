@@ -1,5 +1,5 @@
 # Shell Pkg
-A minimal, user-maintainable package manageranager written in shell script.
+A minimal, user-maintainable package manager written in shell script.
 Shell Pkg is designed to work alongside an existing package manager.
 
 # How to install?
