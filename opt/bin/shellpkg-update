@@ -36,12 +36,6 @@ if [ -d $REPO/$1 ]; then
     export PACKAGE_DIR=$REPO/$1
     $PACKAGE_DIR/update.sh
     EXIT_CODE=$?
-    if [ $EXIT_CODE -eq 0 ]; then
-        #TODO: mark package as finished updating
-    else
-        #TODO: mark package as failed updating
-    fi
-    exit EXIT_CODE # propagate exit code
 else
     echo "Unknown package: $1"
     exit $PACKAGE_ERROR
