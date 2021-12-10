@@ -11,7 +11,7 @@ if [ -z $1 ]; then
 fi
 
 
-if [ -f /opt/etc/shellpkg ]; then
+if [ -f /etc/shellpkg ]; then
     REPO=$(sed -ne '/^repo=/s/^repo=//p' /etc/shellpkg.conf)
     # assume the user is not an idiot and don't do proper config validation
 else
