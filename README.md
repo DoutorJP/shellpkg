@@ -17,3 +17,9 @@ to have the exact name. Place them on a folder with the **exact** same name of t
 # How to install?
 I created a Debian package for it's reability, but if you aren't running Debian our Ubuntu, just download the Zip file, extract, place all the files in the folder
 on ```usr/local/bin``` and place the ```shellpkg-repo```folder on ```/opt``` folder.
+
+# Commands
+
+- ```shellpkg-install <package>```
+- ```shellpkg-remove <package>```
+- ```shellpkg-update <package>``` 
