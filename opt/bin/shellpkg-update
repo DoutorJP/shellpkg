@@ -28,7 +28,7 @@ if [ -d $REPO/$1 ]; then
     echo "============"
     #TODO: dependency and conflict checks
     echo "============"
-    read -p "Press any key to continue with update or hit ^c to abort."
+    read -n1 -p "Press any key to continue with update or hit ^c to abort."
     #TODO: handle dependencies and conflicts
     #TODO: mark package as starting update
     cd /tmp
