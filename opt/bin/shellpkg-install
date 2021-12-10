@@ -28,7 +28,7 @@ if [ -d $REPO/$1 ]; then
     echo "============"
     #TODO: dependency and conflict checks
     echo "============"
-    read -n1 -p "Press any key to continue with installation or hit ^c to abort."
+    read -p "Press any key to continue with installation or hit ^c to abort."
     #TODO: install dependencies
     #TODO: mark package as starting installation
     cd /tmp
