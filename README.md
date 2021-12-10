@@ -17,7 +17,7 @@ planned options:
 
 # Where are the packages?
 One goal of this project is for everything to be user-maintainable. As such, there are no official repositories at this point. That said, creating packages is easy (see below) and repositories can be shared - for example with Git. An example package for Telegram is provided.
-TODO: Make a generic example package that actually does nothing.
+The ```hello-world-shellpkg``` is also available.
 
 # How to create a package?
 Packages can be created by making a directory in the repository folder and adding three scripts:
