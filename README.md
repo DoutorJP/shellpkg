@@ -5,6 +5,7 @@ A minimal, package manageranager written in shell script
 This is a Package Manager written in Shell script. It's minimal, not bloated, and lets users with a little knowledge easily mantain their own packages.
 
 > Other package managers work with local packages, that often get old. With Shell Pkg, your packages are download directly from the internet at the time you start an install. And, you don't have to deal with depedencies.
+
 Comment: This is decidedly not true. There are RR distros and systems that are pretty close to being up-to-date at all times. That said, for distros with a stable package base, this might be useful if you need "just that one" updated package. I will add some suggestion to an accompanying issue.
 
 # Where are the packages?
