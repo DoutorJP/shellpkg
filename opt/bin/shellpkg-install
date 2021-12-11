@@ -34,6 +34,14 @@ if [ -d $REPO/$1 ]; then
     cd /tmp
     export BASE_DIR=$(sed -ne '/^base-directory=/s/^base-directory=//p' /etc/shellpkg.conf)
     export PACKAGE_DIR=$REPO/$1
+    if [ -e $PACKAGE_DIR/status-installed ]
+    then
+    echo "$1 is already installed"
+    exit $GENERAL_ERROR
+    else
+    echo "Package check OK"
+    sudo touch $PACKAGE_DIR/status-installed
+    fi
     $PACKAGE_DIR/install.sh
     EXIT_CODE=$?
 else
