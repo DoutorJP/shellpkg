@@ -39,6 +39,8 @@ Additionally, a folder `meta` can be contained in the package folder containing 
 - `conflicts` a list of conflicting packages, lines starting with # are ignored
 - `version` a version string
 
+These informations will be displayed when you call `shellpkg-info` command.
+
 # Commands
 
 - `shellpkg-install <package>`
