@@ -17,8 +17,7 @@ planned options:
 - `host-dependency-check`: a command that can be used to check if a given package is installed in another package manager (useful when using shellpkg alongside another package manager, can be disabled by setting it to /bin/false, default: `[ -n "$(apt list --installed | sed -e 's/\/.*//' | grep '^$PACKAGE$')" ]`)
 
 # Where are the packages?
-One goal of this project is for everything to be user-maintainable. As such, there are no official repositories at this point. That said, creating packages is easy (see below) and repositories can be shared - for example with Git. An example package for Telegram is provided.
-The ```hello-world-shellpkg``` is also available.
+One goal of this project is for everything to be user-maintainable. As such, there are no official repositories at this point. That said, creating packages is easy (see below) and repositories can be shared - for example with Git. An example package for Telegram and an simple `hello world` app is provided.
 
 # How to create a package?
 Packages can be created by making a directory in the repository folder and adding three scripts:
