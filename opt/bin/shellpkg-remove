@@ -1,8 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 GENERAL_ERROR=1
 USAGE_ERROR=2
 PACKAGE_ERROR=3
+check_config() {
+    sed -ne "/^$1=/s/^$1=//p" /etc/shellpkg.conf
+}
 
 if [ -z "$1" ]; then
     echo "No package specified."
@@ -11,7 +14,7 @@ if [ -z "$1" ]; then
 fi
 
 if [ -f /etc/shellpkg.conf ]; then
-    REPO=$(sed -ne '/^repo=/s/^repo=//p' /etc/shellpkg.conf)
+    REPO=$(check_config repo)
     # assume the user is not an idiot and don't do proper config validation
 else
     echo "Config file not found!"
@@ -27,23 +30,40 @@ if [ -d $REPO/$1 ]; then
     echo "Package: $1"
     echo "============"
     #TODO: dependency and conflict checks
-    echo "============"
-    read -n1 -p "Press any key to continue with package removal or hit ^c to abort."
+    #echo "============"
+    read -n1 -p "Press any key to continue with removal or hit ^c to abort."
     #TODO: uninstall dependents
     #TODO: mark package as starting deinstallation
     cd /tmp
-    export BASE_DIR=$(sed -ne '/^base-directory=/s/^base-directory=//p' /etc/shellpkg.conf)
+    export BASE_DIR=$(check_config base-directory)
     export PACKAGE_DIR=$REPO/$1
     if [ -f $PACKAGE_DIR/status-installed ]
     then
-    echo "Package Check OK"
-    sudo rm $PACKAGE_DIR/status-installed
+        echo "Package Check OK"
     else
-    echo "$1 is Not installed"
-    exit $GENERAL_ERROR
+        echo "$1 is Not installed"
+        exit $GENERAL_ERROR
     fi
-    $PACKAGE_DIR/remove.sh
-    EXIT_CODE=$?
+    
+    if [ $(check_config single-file) = "true" ]; then
+        source $PACKAGE_DIR/operations.sh 2>1 &>/dev/null
+        if [ $? -ne 0 ]; then
+            echo No operations file present.
+            read -p "Do you want to use the $(basename $0 | cut -d- -f2) script? " yn
+            case ${yn,,} in
+                y) 
+                    $PACKAGE_DIR/remove.sh
+                    sudo rm $PACKAGE_DIR/status-installed
+                    exit $? ;;
+                *) exit $PACKAGE_ERROR ;;
+            esac
+        fi
+        remove
+    elif [ $(check_config single-file) = "false" ]; then
+        $PACKAGE_DIR/remove.sh
+        exit $?
+    fi
+    sudo touch $PACKAGE_DIR/status-installed
 else
     echo "Unknown package: $1"
     exit $PACKAGE_ERROR
