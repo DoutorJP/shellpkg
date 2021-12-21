@@ -24,7 +24,7 @@ Packages can be created by making a directory in the repository folder and addin
 
 - `operations.sh`
 
-The working directory for this script is `/tmp`. It will be called by the respective shellpkg-commands and can perform arbitrary operations. Currently, the script supports 3 variables:
+The working directory for this script is `/tmp`. Inside this script there will be 3 variables, that will be called by the respective shellpkg-commands and can perform arbitrary operations. Currently, the script supports 3 variables:
 - `inst`
 - `remove`
 - `update`
