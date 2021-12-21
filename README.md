@@ -28,7 +28,8 @@ The working directory for this script is `/tmp`. Inside this script there will b
 - `inst`
 - `remove`
 - `update`
-To know how these variables are recognized, check the `operation.sh` file from `hello-world-shellpkg` folder.
+To know how these variables are recognized, check the `operation.sh`
+file from `hello-world-shellpkg` folder.
 
 Environment variables for the installation base directory (`/opt` by default) and the package directory (`/opt/usr/share/shellpkg-repo/<package name>` by default) will be provided as $BASE_DIR and $PACKAGE_DIR.
 
