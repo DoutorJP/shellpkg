@@ -63,7 +63,6 @@ if [ -d $REPO/$1 ]; then
         $PACKAGE_DIR/remove.sh
         exit $?
     fi
-    sudo touch $PACKAGE_DIR/status-installed
 else
     echo "Unknown package: $1"
     exit $PACKAGE_ERROR
