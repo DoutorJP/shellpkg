@@ -26,13 +26,13 @@ cd /usr/local/bin
 sudo chmod +777 telegram-local
 sudo echo "cd /opt/telegram/Telegram && ./Telegram" >> telegram-local
 clear
-echo "Menu criado"
+echo "Menu created"
 sleep 1
 cd /opt
 sudo rm telegram.tar.xz
 cd shellpkg-repo/telegram
 sudo rm ram.tar.xz telegram.tar.xz
 clear
-echo "Pacote Telegram Instalado!"
+echo "Package Telegram was installed"
 sleep 3
 exit 1
