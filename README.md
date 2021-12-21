@@ -20,13 +20,16 @@ planned options:
 One goal of this project is for everything to be user-maintainable. As such, there are no official repositories at this point. That said, creating packages is easy (see below) and repositories can be shared - for example with Git. An example package for Telegram and an simple `hello world` app is provided.
 
 # How to create a package?
-Packages can be created by making a directory in the repository folder and adding three scripts:
+Packages can be created by making a directory in the repository folder and adding one script:
 
-- `install.sh`
-- `remove.sh`
-- `update.sh`
+- `operations.sh`
 
-The working directory for each of these scripts is `/tmp`. They will be called by the respective shellpkg-commands and can perform arbitrary operations.
+The working directory for this script is `/tmp`. It will be called by the respective shellpkg-commands and can perform arbitrary operations. Currently, the script supports 3 variables:
+- `inst`
+- `remove`
+- `update`
+To know how these variables are recognized, check the `operation.sh` file from `hello-world-shellpkg` folder.
+
 Environment variables for the installation base directory (`/opt` by default) and the package directory (`/opt/usr/share/shellpkg-repo/<package name>` by default) will be provided as $BASE_DIR and $PACKAGE_DIR.
 
 Additionally, a folder `meta` can be contained in the package folder containing some additional optional files:
