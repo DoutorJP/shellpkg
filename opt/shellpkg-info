@@ -6,7 +6,7 @@ PACKAGE_ERROR=3
 
 if [ -z "$1" ]; then
     echo "No package specified."
-    echo "Usage: $0 <package name>"
+    echo "Usage: $(basename $0) <package name>"
     exit $USAGE_ERROR
 fi
 
