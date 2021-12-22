@@ -1,7 +1,7 @@
 # Shell Pkg
 A minimal, user-maintainable package manager written in shell script.
 Shell Pkg is designed to work alongside an existing package manager.
-![screen-gif](./final_61b38ba745de92005d530b66_742074.gif)
+![screen-gif](./assets/final_61b38ba745de92005d530b66_742074.gif)
 
 # How to install?
 Place the files in their respective directories (as indicated by their paths relative to this Git repo) and add /opt/bin to your PATH variable
