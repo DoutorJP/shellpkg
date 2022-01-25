@@ -1,14 +1,14 @@
 # Welcome to the new shellpkg
 
-Shellpkg is now written in python. More spped, intelligible and easier.
+Shellpkg is now written in python. More speed, intelligible and easier.
 
-- More faster
+- Faster
 
-If you don't cound the download time, it installs an package in less than 2.5 seconds. That's is **fast**.
+Without the download time, it installs an package in less than 2.5 seconds. That's **fast**.
 
 - Easier data
 
-With python, it's now possible to host an remote package (it's already online!). But still, you can still create packages easily.
+With python, it's now possible to host an remote package (it's already online!). But, you can still create packages easily.
 
 - More Human-readable
 
@@ -16,7 +16,7 @@ Python lang makes easy to create advanced programs that still can be begginer fr
 
 ### How to install
 
-Move the binary to ```bin``` folder. Keep in mind that we are in an testing release, so bugs may happen.
+Move the binary to ```bin``` folder. Keep in mind that we are in an testing release, so, bugs may happen.
 We are not responsible for loss of data.
 
 ### Compiling from source
