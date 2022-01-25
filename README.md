@@ -1,55 +1,30 @@
-# Shell Pkg
-A minimal, user-maintainable package manager written in shell script.
-Shell Pkg is designed to work alongside an existing package manager.
-![screen-gif](./assets/final_61b38ba745de92005d530b66_742074.gif)
+# Welcome to the new shellpkg
 
-# How to install?
-Place the files in their respective directories (as indicated by their paths relative to this Git repo) and add /opt/bin to your PATH variable
+Shellpkg is now written in python. More spped, intelligible and easier.
 
-# How to configure?
-The configuration file has a very simple format. It’s essentially strictly `option=value` except `sed -ne '/^option=/s/^option=//p'` is being used to parse it so as long as other things don’t get in the way, they will just be ignored.
+- More faster
+If you don't cound the download time, it installs an package in less than 2.5 seconds. That's is **fast**.
 
-currently used options:
-- `base-directory`: the base directory where to install applications to (default: `/opt`)
-- `repo`: the directory of the repo (default: `/opt/usr/share/shellpkg-repo`)
+- Easier data
+With python, it's now possible to host an remote package (it's already online!). But still, you can still create packages easily.
 
-planned options:
-- `host-dependency-check`: a command that can be used to check if a given package is installed in another package manager (useful when using shellpkg alongside another package manager, can be disabled by setting it to /bin/false, default: `[ -n "$(apt list --installed | sed -e 's/\/.*//' | grep '^$PACKAGE$')" ]`)
+- More Human-readable
+Python lang makes easy to create advanced programs that still can be begginer friendly.
 
-# Where are the packages?
-One goal of this project is for everything to be user-maintainable. As such, there are no official repositories at this point. That said, creating packages is easy (see below) and repositories can be shared - for example with Git. An example package for Telegram and an simple `hello world` app is provided.
+### How to install
 
-# How to create a package?
-Packages can be created by making a directory in the repository folder and adding one script:
+Move the binary to ```bin``` folder. Keep in mind that we are in an testing release, so bugs may happen.
+We are not responsible for loss of data.
 
-- `operations.sh`
+### Compiling from source
 
-The working directory for this script is `/tmp`. Inside this script there will be 3 variables, that will be called by the respective shellpkg-commands and can perform arbitrary operations. Currently, the script supports 3 variables:
-- `inst`
-- `remove`
-- `update`
+You will need the following packages:
+```python3```
+```pyinstaller```
+You can install pyinstaller using **pip**.
 
-To know how these variables are recognized, check the `operation.sh`
-file from `hello-world-shellpkg` folder.
-
-Environment variables for the installation base directory (`/opt` by default) and the package directory (`/opt/usr/share/shellpkg-repo/<package name>` by default) will be provided as $BASE_DIR and $PACKAGE_DIR.
-
-Additionally, a folder `meta` can be contained in the package folder containing some additional optional files:
-
-- `description` (human-readable package description)
-- `dependencies` a list of dependencies, lines starting with # are ignored
-- `conflicts` a list of conflicting packages, lines starting with # are ignored
-- `version` a version string
-
-These informations will be displayed when you call `shellpkg-info` command.
-
-# Commands
-
-- `shellpkg-install <package>`
-- `shellpkg-remove <package>`
-- `shellpkg-update <package>`
-- `shellpkg-info <package>`
-
-These do exactly what you’d expect.
-There are no commands to list packages or update the package repo because tehse things are easier to do externally (listing the package directory and pulling a git repo, for example).
-A search command (to search through descriptions) and a prefetch command (to allow offline operation) may get added in the future.
+Execute the following commands:
+```git clone https://github.com/Jocadbz/shellpkg.git```
+```cd shellpkg```
+```pyinstaller --onefile pypkg.py```
+Your binary will be located under **dist** folder.
