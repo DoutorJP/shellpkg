@@ -3,12 +3,15 @@
 Shellpkg is now written in python. More spped, intelligible and easier.
 
 - More faster
+
 If you don't cound the download time, it installs an package in less than 2.5 seconds. That's is **fast**.
 
 - Easier data
+
 With python, it's now possible to host an remote package (it's already online!). But still, you can still create packages easily.
 
 - More Human-readable
+
 Python lang makes easy to create advanced programs that still can be begginer friendly.
 
 ### How to install
