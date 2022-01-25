@@ -22,12 +22,18 @@ We are not responsible for loss of data.
 ### Compiling from source
 
 You will need the following packages:
+
 ```python3```
+
 ```pyinstaller```
+
 You can install pyinstaller using **pip**.
 
 Execute the following commands:
 ```git clone https://github.com/Jocadbz/shellpkg.git```
+
 ```cd shellpkg```
+
 ```pyinstaller --onefile pypkg.py```
+
 Your binary will be located under **dist** folder.
