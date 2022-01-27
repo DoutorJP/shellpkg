@@ -36,3 +36,9 @@ Now, execute the following commands:
 Your binary will be located under **dist** folder.
 
 (If you are looking for the legacy version, please check the [legacy](https://github.com/Jocadbz/shellpkg/tree/legacy) branch.)
+
+Shellpkg is now written in python. More speed, intelligible and easier.
+
+
+Move the binary to ```bin``` folder. Keep in mind that we are in an testing release, so, bugs may happen.
+**We are not responsible for loss of data.**

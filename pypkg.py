@@ -89,7 +89,7 @@ def DO_WORK():
             print('Shellpkg')
             print('Options:')
             print(' install -> Install the desired package')
-            print(' upgrade -> Do an complete upgrade')
+            print(' upgrade -> Upgrade the desired program')
             print(' remove  -> remove the desired program')
          elif a == 'install' or a == 'i':
             INSTALL()
