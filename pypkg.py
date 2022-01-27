@@ -67,9 +67,9 @@ def REMOVE():
    else:
       print(f'The package {sys.argv[2]} is not installed.')
       sys.exit()
-   os.system(f'rm -rf /opt/{sys.argv[2]}')
-   os.system(f'rm /usr/share/applications/{sys.argv[2]}.desktop')
-   os.system(f'rm /opt/installed/{sys.argv[2]}')
+   shutil.rmtree(f'/opt/{sys.argv[2]}')
+   os.remove(f'/usr/share/applications/{sys.argv[2]}.desktop')
+   os.remove(f'/opt/installed/{sys.argv[2]}')
 
 def UPGRADE():
     REMOVE()
