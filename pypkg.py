@@ -2,11 +2,13 @@
 from ast import Break
 import os
 import sys
+import shutil
 from pathlib import Path
 import lzma
 from contextlib import closing
 # fuck you python
 import tarfile
+import urllib.request
 
 if not os.geteuid()==0:
         sys.exit('This program must be run as root!')
@@ -46,17 +48,16 @@ def INSTALL():
        print('Check completed')
    os.chdir('/tmp')
    url = f"https://jocadbz.github.io/pypkg-repo/packages/{sys.argv[2]}.tar.xz"
-   os.system(f'wget https://jocadbz.github.io/pypkg-repo/packages/{sys.argv[2]}.tar.xz')
+   urllib.request.urlretrieve(url, f'/tmp/{sys.argv[2]}.tar.xz')
    with lzma.open(f"{sys.argv[2]}.tar.xz") as f:
     with tarfile.open(fileobj=f) as tar:
         content = tar.extractall('/tmp/shit')
-   os.system('mv /tmp/shit/app/* /opt/')
-   os.system('mv /tmp/shit/launcher/* /usr/share/applications/')
-   os.system('rm -rf /tmp/shit')
-   os.system('rm -rf /tmp/shit')
-   os.system('rm -rf {sys.argv[2]}.tar.xz')
-   os.system(f'touch /opt/installed/{sys.argv[2]}')
-   exit
+   shutil.move(f"/tmp/shit/app/{sys.argv[2]}", "/opt/")
+   shutil.move(f"/tmp/shit/launcher/{sys.argv[2]}.desktop", "/usr/share/applications/")
+   shutil.rmtree('/tmp/shit')
+   os.remove(f'{sys.argv[2]}.tar.xz')
+   f = open(f'/opt/installed/{sys.argv[2]}', 'x')
+   sys.exit()
 
 def REMOVE():
    path_to_file = f'/opt/installed/{sys.argv[2]}'
@@ -66,9 +67,9 @@ def REMOVE():
    else:
       print(f'The package {sys.argv[2]} is not installed.')
       sys.exit()
-   os.system(f'rm -rf /opt/{sys.argv[2]}')
-   os.system(f'rm /usr/share/applications/{sys.argv[2]}.desktop')
-   os.system(f'rm /opt/installed/{sys.argv[2]}')
+   shutil.rmtree(f'/opt/{sys.argv[2]}')
+   os.remove(f'/usr/share/applications/{sys.argv[2]}.desktop')
+   os.remove(f'/opt/installed/{sys.argv[2]}')
 
 def UPGRADE():
     REMOVE()
