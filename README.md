@@ -35,4 +35,4 @@ Now, execute the following commands:
 
 Your binary will be located under **dist** folder.
 
-(If you are looking for the 1.0, please check the v1.0 branch.)
+(If you are looking for the legacy version, please check the [legacy](https://github.com/Jocadbz/shellpkg/tree/legacy) branch.)
