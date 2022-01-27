@@ -12,11 +12,11 @@ With python, it's now possible to host an remote package (it's already online!).
 
 - More Human-readable
 
-Python lang makes easy to create advanced programs that still can be begginer friendly.
+Python makes easy to create advanced programs that still can be begginer friendly.
 
-### How to install
+### Installation
 
-Move the binary to ```bin``` folder. Keep in mind that we are in an testing release, so, bugs may happen.
+Move the binary to ```/usr/bin``` folder. Keep in mind that we are in an testing release, so, bugs may happen.
 We are not responsible for loss of data.
 
 ### Compiling from source
@@ -27,7 +27,7 @@ You will need the following packages:
 
 ```pyinstaller```
 
-You can install pyinstaller using **pip**.
+You can install pyinstaller using ```pip```.
 
 Execute the following commands:
 
